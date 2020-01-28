@@ -1,0 +1,266 @@
+/* The StackPath logo blue header at the top of the page */
+#stackpath_page_header {
+  margin-left: -20px;
+  padding: 20px;
+  background-color: #1f4ec2;
+}
+
+#stackpath_header_logo {
+  display: block;
+  width: 174px;
+  height: 24px;
+  text-indent: -99999px;
+}
+
+.stackpath-column-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stackpath-column-flex-column {
+  flex-grow: 1;
+  min-width: 250px;
+  max-width: 50%;
+}
+
+.stackpath-column-flex-form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.stackpath-column-flex-api-setting {
+  min-width: 100px;
+  white-space: nowrap;
+}
+
+.stackpath-column-flex-stack-setting {
+  min-width: 140px;
+  white-space: nowrap;
+}
+
+.stackpath-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 2;
+}
+
+.stackpath-message-separator {
+  margin-top: 16px !important;
+  margin-bottom: 16px !important;
+}
+
+/*
+The panels in the dashboard were originally copied from the wp-admin welcome
+page panel styling defined in wp-admin/css/dashboard.css.
+*/
+.stackpath-dashboard-panel {
+  max-width: 1500px;
+  position: relative;
+  overflow: auto;
+  margin: 16px 0;
+  padding: 23px;
+  /*padding: 23px 23px 0 23px;*/
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+  background: #fff;
+  font-size: 13px;
+  line-height: 2.1em;
+}
+
+.stackpath-dashboard-panel h2 {
+  margin: 0;
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.stackpath-dashboard-panel h3 {
+  margin: 1.33em 0 0;
+  font-size: 16px;
+}
+
+.stackpath-dashboard-panel li {
+  font-size: 14px;
+}
+
+.stackpath-dashboard-panel p {
+  color: #72777c;
+}
+
+.stackpath-dashboard-panel a {
+  text-decoration: none;
+}
+
+.stackpath-dashboard-panel .about-description {
+  font-size: 16px;
+  margin: 0;
+}
+
+.stackpath-dashboard-panel .stackpath-dashboard-panel-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px 15px 10px 21px;
+  font-size: 13px;
+  line-height: 1.23076923; /* Chrome rounding, needs to be 16px equivalent */
+  text-decoration: none;
+}
+
+.stackpath-dashboard-panel .stackpath-dashboard-panel-close:before {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  transition: all .1s ease-in-out;
+}
+
+.wp-core-ui .stackpath-dashboard-panel .button.button-hero {
+  margin: 15px 13px 3px 0;
+  padding: 12px 36px;
+  height: auto;
+  line-height: 1.4285714;
+  white-space: normal;
+}
+
+.stackpath-dashboard-panel .stackpath-dashboard-panel-column-container {
+  clear: both;
+  position: relative;
+}
+
+.stackpath-dashboard-panel .stackpath-dashboard-panel-column {
+  width: 32%;
+  min-width: 200px;
+  float: left;
+}
+
+.ie8 .stackpath-dashboard-panel .stackpath-dashboard-panel-column {
+  min-width: 230px;
+}
+
+.stackpath-dashboard-panel .stackpath-dashboard-panel-column:first-child {
+  width: 36%;
+}
+
+.stackpath-dashboard-panel-column p.hide-if-no-customize {
+  margin-top: 10px;
+}
+
+.stackpath-dashboard-panel-column p {
+  margin-top: 7px;
+  color: #444;
+}
+
+.stackpath-dashboard-panel .welcome-widgets-menus {
+  line-height: 16px;
+}
+
+.stackpath-dashboard-panel .stackpath-dashboard-panel-column ul {
+  margin: 0.8em 1em 1em 0;
+}
+
+.stackpath-dashboard-panel .stackpath-dashboard-panel-column li {
+  line-height: 16px;
+  list-style-type: none;
+  padding: 0 0 8px;
+}
+
+.stackpath-dashboard-panel .welcome-icon {
+  background: transparent !important;
+}
+
+/*
+The more information pull-down is inspired by the help and screen options pull
+downs defined in wp-admin/css/common.css.
+*/
+
+#stackpath-more-info-wrap {
+  margin: 0;
+  padding: 8px 20px 12px;
+  position: relative;
+  overflow: auto;
+}
+
+#stackpath-more-info-link-wrap {
+  float: left;
+  margin: 0 0 0 6px;
+}
+
+#stackpath-more-info-wrap {
+  padding: 0;
+}
+
+#stackpath-more-info-columns {
+  display: flex;
+}
+
+#stackpath-more-info-main {
+  padding: 0 12px 0 12px;
+  width: auto;
+  flex-grow: 1;
+  border: none;
+  border-right: 1px solid #e1e1e1;
+  background: #f6fbfd;
+}
+
+.stackpath-more-info-sidebar {
+  width: 170px;
+  padding: 0 8px 0 12px;
+  overflow: auto;
+}
+
+/*
+Metrics graphs
+*/
+
+#stackpath-site-metrics{
+  margin-top: 23px;
+}
+
+.stackpath-line-chart {
+  margin-top: 1em;
+  height: 200px;
+}
+
+.stackpath-doughnut-charts {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.stackpath-doughnut-chart-container {
+  flex: 1;
+  text-align: center;
+}
+
+.stackpath-doughnut-chart {
+  margin-top: 1em;
+  width: 225px;
+  height: 225px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.stackpath-features-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+.stackpath-feature {
+  width: 250px;
+  padding: 12px;
+}
+
+.stackpath-feature-image {
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}

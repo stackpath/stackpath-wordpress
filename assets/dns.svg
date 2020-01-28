@@ -1,0 +1,38 @@
+<svg id="ac15e33f-f64e-46f0-97bd-6d0aca87cac2" data-name="Icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112 112">
+  <title>sp-icon-feature-global-network -purple</title>
+  <g>
+    <path d="M39.1,33.817c2.366.5,6.356.191,10.7-.972,6.58-1.764,11.479-4.82,10.941-6.826-.182-.681-.968-1.153-2.182-1.411" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M28.614,40.585a5.6,5.6,0,0,0,3.2,3.406" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M41.338,59.142a31.982,31.982,0,0,1-7.8-.978,30.968,30.968,0,0,1-4.5-1.547" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M67.1,53.154a45.876,45.876,0,0,0,4.018-2.3" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M47.066,58.93q1.357-.129,2.748-.333" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M75.746,62.959a36.736,36.736,0,0,0,6.73-6.183" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M59.054,70.565c.264-.066.529-.135.793-.206a51.339,51.339,0,0,0,9.837-3.734" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M29.489,68.112c5.848,3.228,13.768,4.637,22.319,3.743" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M48.364,81.721A42.317,42.317,0,0,0,76.68,73.588" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M31.723,76.058a32.509,32.509,0,0,0,9.616,4.417" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M48.349,37.591C45.062,33.6,41.383,31,37.8,30.291" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M51.956,42.8q-.413-.706-.841-1.381" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M69.386,48.871c-4.124-11.882-12-20.686-20.379-23.569" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M71.989,60.43A51.663,51.663,0,0,0,70.974,54.4" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M68.935,81.565a36.014,36.014,0,0,0,3.281-13.851" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M77.312,41.423a38.954,38.954,0,0,0-6.395-9.065" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M81.509,54.4a42.936,42.936,0,0,0-.963-4.563q-.233-.87-.5-1.719" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M67.275,29.026a30.953,30.953,0,0,0-7.092-4.244" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="35.453" cy="44.776" r="3.643" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <circle cx="25.713" cy="54.458" r="3.643" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <circle cx="78.598" cy="44.776" r="3.643" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <circle cx="72.273" cy="64.062" r="3.643" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <g>
+      <path d="M57.47,41.423a9.876,9.876,0,0,0-9.8,9.926c0,3.944,2.511,7.8,4.146,11.113,2.647,5.364,2.982,5.621,5.659,11.381C60.6,67.37,60.6,67.37,63.128,62.462c1.808-3.5,4.146-7.387,4.146-11.113a9.877,9.877,0,0,0-9.8-9.926Z" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <g>
+        <polygon points="53.066 49.078 57.47 51.149 62.079 49.201 57.47 47.252 53.066 49.078" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="53.066 51.739 57.47 53.81 62.079 51.862" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="53.066 54.401 57.47 56.472 62.079 54.523" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+    </g>
+    <path id="f15578df-0d40-470a-94d3-5ae66eaff818" data-name="SVGID" d="M45.731,85.774a31.491,31.491,0,1,0-20.412-36.9" fill="none" stroke="#787a85" stroke-linecap="round" stroke-linejoin="round"/>
+    <path id="bc15e75e-c2b0-412d-90b7-b6f5007c102f" data-name="SVGID" d="M24.742,59.868a31.969,31.969,0,0,0,.839,4.283A31.394,31.394,0,0,0,40.254,83.273" fill="none" stroke="#787a85" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="44.981" cy="80.368" r="3.643" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+  </g>
+</svg>

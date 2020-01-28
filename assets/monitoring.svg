@@ -1,0 +1,46 @@
+<svg id="e0f1d885-7d9b-4e25-9144-a0cd229be9b7" data-name="Icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112 112">
+  <title>sp-icon-feature-choose-monitoring-locations</title>
+  <g>
+    <circle cx="87.144" cy="49.005" r="5.101" fill="none" stroke="#787a85" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="29.399" cy="72.069" r="6" fill="none" stroke="#787a85" stroke-linecap="round" stroke-linejoin="round"/>
+    <g>
+      <line x1="26.399" y1="38.441" x2="22.974" y2="35.017" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <circle cx="20.399" cy="32.441" r="3.643" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+    <g>
+      <line x1="56" y1="75.173" x2="56" y2="79.485" fill="none" stroke="#787a85" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <path d="M36.211,25.572H33.655V48.307A22.344,22.344,0,0,0,56,70.651h0A22.345,22.345,0,0,0,78.345,48.307V25.572H75.787" fill="none" stroke="#787a85" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <path d="M58.871,70.651V72.3A2.871,2.871,0,0,1,56,75.173h0A2.871,2.871,0,0,1,53.129,72.3V70.652" fill="none" stroke="#787a85" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <polyline points="38.088 27.782 36.208 27.782 36.208 23.357 38.088 23.357" fill="none" stroke="#787a85" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <polyline points="73.912 27.785 75.787 27.785 75.787 23.359 73.912 23.359" fill="none" stroke="#787a85" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+    <g>
+      <polyline points="40.088 22.891 40.088 59.119 71.912 59.119 71.912 22.891" fill="none" stroke="#787a85" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="40.088" y="19.992" width="31.825" height="5.456" fill="none" stroke="#787a85" stroke-linecap="round" stroke-linejoin="round"/>
+      <g>
+        <line x1="67.936" y1="22.083" x2="69.21" y2="23.357" fill="none" stroke="#787a85" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="70.484" y1="22.083" x2="69.21" y2="23.357" fill="none" stroke="#787a85" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <line x1="66.482" y1="19.992" x2="66.482" y2="25.448" fill="none" stroke="#787a85" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="43.497" y="27.866" width="5.5" height="5.5" fill="none" stroke="#787a85" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="51.206" y1="30.75" x2="68.044" y2="30.75" fill="none" stroke="#787a85" stroke-linecap="round" stroke-linejoin="round"/>
+      <polyline points="43.497 39.019 45.321 40.843 48.997 37.168" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="51.206" y1="39.006" x2="61.999" y2="39.006" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="43.497" y="44.378" width="5.5" height="5.5" fill="none" stroke="#787a85" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="51.206" y1="47.261" x2="64.556" y2="47.261" fill="none" stroke="#787a85" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="51.206" y1="55.517" x2="68.044" y2="55.517" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round"/>
+      <polyline points="43.497 55.53 45.321 57.355 48.997 53.68" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <path d="M61.341,88.587A6,6,0,1,0,58.5,91.426" fill="none" stroke="#787a85" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M25.818,35.02a5.993,5.993,0,1,0-2.839,2.84" fill="none" stroke="#787a85" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M97.02,38.283a6,6,0,1,0-2.839,2.839" fill="none" stroke="#787a85" stroke-linecap="round" stroke-linejoin="round"/>
+    <g>
+      <line x1="61.922" y1="92.008" x2="58.497" y2="88.583" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <circle cx="55.922" cy="86.008" r="3.643" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+    <g>
+      <line x1="97.601" y1="41.704" x2="94.176" y2="38.279" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <circle cx="91.601" cy="35.704" r="3.643" fill="none" stroke="#6c2bed" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+  </g>
+</svg>
