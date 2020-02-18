@@ -66,4 +66,4 @@ Set `WP_DEBUG` to `true` in your WordPress installation's `wp-config.php` file t
 
 ## Contributing
 
-We happily accept pull requests! Check out our [contributing guide]() if you'd like to help out.
+We happily accept pull requests! Check out our [contributing guide](https://github.com/stackpath/stackpath-wordpress/blob/master/.github/contributing.md) if you'd like to help out.
