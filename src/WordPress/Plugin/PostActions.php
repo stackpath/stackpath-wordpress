@@ -13,6 +13,7 @@ use StackPath\WordPress\TransientData;
 
 /**
  * @property \StackPath\WordPress\Settings $settings
+ * @property \StackPath\API\Client $apiClient
  * @property \StackPath\WordPress\Integration\WordPressInterface $wordPress
  */
 trait PostActions
@@ -34,9 +35,7 @@ trait PostActions
             // Try to authenticate to StackPath with the client ID and secret
             $this->settings->clientId = $_POST['client_id'];
             $this->settings->clientSecret = $_POST['client_secret'];
-
-            $apiClient = new Client($this->settings, $this->wordPress);
-            $apiClient->authenticate();
+            $this->apiClient->authenticate();
         } catch (AuthenticationException $e) {
             // Note authentication errors
             $transientData->addError(new Message(
