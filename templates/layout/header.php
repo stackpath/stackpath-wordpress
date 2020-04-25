@@ -21,7 +21,7 @@ if (!defined('ABSPATH')) {
                 <p>Check out this plugin on <a href="https://www.github.com/stackpath/stackpath-wordpress/">GitHub</a> if you'd like to give feedback or see how it works.</p>
                 <?php if (WP_DEBUG) : ?>
                     <p><strong>Debug information</strong></p>
-                    <p>You are seeing this because both <code>WP_DEBUG</code> is set to <code>true</code> in <code>wp-config.php</code>.</p>
+                    <p>You are seeing this because <code>WP_DEBUG</code> is set to <code>true</code> in <code>wp-config.php</code>.</p>
                     <div class="stackpath-dashboard-panel" style="padding: 1em; margin: 0 0 12px;">
                         <?php global $wp_version, $wpdb; ?>
 
