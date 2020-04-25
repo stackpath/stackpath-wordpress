@@ -78,6 +78,8 @@ class Plugin
         $this->settings = $settings;
         $this->apiClient = $apiClient;
         $this->wordPress = $wordPress;
+
+        $this->apiClient->setPluginVersion($this->version());
     }
 
     /**
