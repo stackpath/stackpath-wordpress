@@ -64,6 +64,10 @@ We do not recommend installing development utilities on a live site.
 
 Set `WP_DEBUG` to `true` in your WordPress installation's `wp-config.php` file to enable a debug display in the "More" dropdown under the StackPath logo. This debug information includes some system information, a list of WordPres plugins installed, and the StackPath plugin's configuration.
 
+Set `WP_DEBUG` and `WP_DEBUG_DISPLAY` to `true` to display low level StackPath API call information in non-AJAX error messages.
+
+Set `WP_DEBUG` to true and set `WP_DEBUG_LOG` to a valid value to report low level StackPath API call information to WordPress's error log.
+
 ## Contributing
 
 We happily accept pull requests! Check out our [contributing guide](https://github.com/stackpath/stackpath-wordpress/blob/master/.github/contributing.md) if you'd like to help out.

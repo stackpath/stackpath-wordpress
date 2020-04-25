@@ -5,6 +5,7 @@ namespace StackPath\Exception\API;
 use Requests_Response;
 use StackPath\API\Response;
 use StackPath\Exception\Exception;
+use StackPath\WordPress\Message;
 
 /**
  * StackPath backend API request exception
@@ -100,6 +101,38 @@ class RequestException extends Exception
         array $requestOptions,
         Response $response
     ) {
+        // Sanitize passwords and authentication tokens out of the request
+        // options.
+        if (array_key_exists('body', $requestOptions)) {
+            $requestOptions['body'] = preg_replace(
+                '/"client_secret":"[A-Za-z0-9]*"/',
+                '"client_secret":"REDACTED"',
+                $requestOptions['body']
+            );
+        }
+
+        if (
+            array_key_exists('headers', $requestOptions)
+            && array_key_exists('Authorization', $requestOptions['headers'])
+        ) {
+            $requestOptions['headers']['Authorization'] = 'Bearer REDACTED';
+        }
+
+        // Log the error if debugging is set.
+        if (
+            defined('WP_DEBUG')
+            && defined('WP_DEBUG_LOG')
+            && WP_DEBUG
+            && WP_DEBUG_LOG
+        ) {
+            error_log('An error was received from the StackPath API');
+            error_log("Request URL: {$requestUrl}");
+            error_log('Request options:');
+            error_log(Message::debugFormat($requestOptions));
+            error_log('Response:');
+            error_log(Message::debugFormat($response));
+        }
+
         // Pull the error messages out of the response body
         $code = null;
         $message = null;

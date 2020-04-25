@@ -41,7 +41,12 @@ trait PostActions
             // Note authentication errors
             $transientData->addError(new Message(
                 'Unable to authenticate with the StackPath API',
-                'Please check your client ID and secret and try again.'
+                'Please check your client ID and secret and try again.',
+                [
+                    'Request URL' => $e->requestUrl,
+                    'Request options' => $e->requestOptions,
+                    'Response' => $e->response,
+                ]
             ));
 
             $this->redirectTo('stackpath-log-in', $transientData);
