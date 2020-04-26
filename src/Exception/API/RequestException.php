@@ -206,6 +206,61 @@ class RequestException extends Exception
                 $description .= "\n";
             }
 
+            // Serialize error details into strings for easy display
+            foreach ($this->details as $i => $detail) {
+                // Scalar details already display easily
+                if (!is_object($detail) && !is_array($detail)) {
+                    continue;
+                }
+
+                // Array details should be shown one per line
+                if (is_array($detail)) {
+                    $this->details[$i] = implode("\n", $detail);
+                    continue;
+                }
+
+                // If the detail isn't a StackPath typed detail then we don't
+                // know what to do with it.
+                if (!property_exists($detail, '@type')) {
+                    continue;
+                }
+
+                // Strip the RequestInfo detail
+                //
+                // RequestInfo shows up in error responses, which are already
+                // populated in the API response object and don't need to be
+                // shown to the user.
+                if ($detail->{'@type'} === 'stackpath.rpc.RequestInfo') {
+                    unset($this->details[$i]);
+                    continue;
+                }
+
+                // Populate input errors
+                //
+                // Many HTTP 400 errors have a stackpath.rpc.BadRequest details
+                // object that contains individual API field violations. Show
+                // one field violation per line.
+                if (
+                    $detail->{'@type'} === 'stackpath.rpc.BadRequest'
+                    && property_exists($detail, 'fieldViolations')
+                    && is_array($detail->fieldViolations)
+                ) {
+                    $newDetails = [];
+
+                    foreach ($detail->fieldViolations as $fieldViolation) {
+                        if (
+                            property_exists($fieldViolation, 'field')
+                            && property_exists($fieldViolation, 'description')
+                        ) {
+                            $newDetails[] = "{$fieldViolation->field}: {$fieldViolation->description}";
+                        }
+                    }
+
+                    $this->details[$i] = implode("\n", $newDetails);
+                    continue;
+                }
+            }
+
             $description .= implode("\n", $this->details);
         }
 
