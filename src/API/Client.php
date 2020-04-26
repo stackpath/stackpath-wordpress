@@ -183,7 +183,7 @@ class Client
 
         // If the call was a failure then throw the appropriate exception
         if (!$response->success) {
-            throw RequestException::create($url, $requestOptions, $response);
+            throw RequestException::create($this->pluginVersion, $url, $requestOptions, $response);
         }
 
         // Finally, return the successful response

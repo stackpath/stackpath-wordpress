@@ -91,12 +91,14 @@ class RequestException extends Exception
     /**
      * Factory a new StackPath API exception.
      *
+     * @param string $pluginVersion
      * @param string $requestUrl
      * @param array $requestOptions
      * @param Response $response
      * @return RequestException
      */
     public static function create(
+        $pluginVersion,
         $requestUrl,
         array $requestOptions,
         Response $response
@@ -125,12 +127,19 @@ class RequestException extends Exception
             && WP_DEBUG
             && WP_DEBUG_LOG
         ) {
-            error_log('An error was received from the StackPath API');
-            error_log("Request URL: {$requestUrl}");
-            error_log('Request options:');
-            error_log(Message::debugFormat($requestOptions));
-            error_log('Response:');
-            error_log(Message::debugFormat($response));
+            error_log("[StackPath WordPress Plugin {$pluginVersion}] An error was received from the StackPath API");
+            error_log("[StackPath WordPress Plugin {$pluginVersion}] Request URL: {$requestUrl}");
+
+            if ($response->requestId !== null) {
+                error_log("[StackPath WordPress Plugin {$pluginVersion}] Request ID: {$response->requestId}");
+            }
+
+            error_log(
+                "[StackPath WordPress Plugin {$pluginVersion}] Request options: "
+                . Message::debugFormat($requestOptions)
+            );
+
+            error_log("[StackPath WordPress Plugin {$pluginVersion}] Response: " . Message::debugFormat($response));
         }
 
         // Pull the error messages out of the response body
