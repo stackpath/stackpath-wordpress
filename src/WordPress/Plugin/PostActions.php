@@ -43,6 +43,7 @@ trait PostActions
                 'Please check your client ID and secret and try again.',
                 [
                     'Request URL' => $e->requestUrl,
+                    'Request ID' => $e->response->requestId,
                     'Request options' => $e->requestOptions,
                     'Response' => $e->response,
                 ]
