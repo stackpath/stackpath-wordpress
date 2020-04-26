@@ -180,6 +180,7 @@ class Client
         // Recast the response as a StackPath API response
         $response = Response::fromWordPressResponse($response['http_response']->get_response_object());
         $response->decodeBody();
+        $response->findRequestId();
 
         // If the call was a failure then throw the appropriate exception
         if (!$response->success) {

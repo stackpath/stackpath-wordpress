@@ -70,11 +70,14 @@ class Message
         // API request exceptions have more information to show to users.
         if ($e instanceof RequestException) {
             $description = $e->detailedErrorMessage();
-            $debugInformation = [
-                'Request URL' => $e->requestUrl,
-                'Request options' => $e->requestOptions,
-                'Response' => $e->response,
-            ];
+            $debugInformation = ['Request URL' => $e->requestUrl];
+
+            if ($e->response->requestId !== null) {
+                $debugInformation['Request ID'] = $e->response->requestId;
+            }
+
+            $debugInformation['Request options'] = $e->requestOptions;
+            $debugInformation['Response'] = $e->response;
         }
 
         return new self($title, $description, $debugInformation);

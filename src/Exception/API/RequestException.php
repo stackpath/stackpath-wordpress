@@ -56,7 +56,7 @@ class RequestException extends Exception
     /**
      * The response that resulted in an error
      *
-     * @var Requests_Response
+     * @var Response
      */
     public $response;
 

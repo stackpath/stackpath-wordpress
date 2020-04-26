@@ -27,6 +27,16 @@ class Response extends Requests_Response
     public $decodedBody;
 
     /**
+     * A StackPath API request ID
+     *
+     * Request IDs are present in StackPath error responses and can be used by
+     * StackPath support to trace the error and find its root cause.
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * Convert a WordPress response into a StackPath API response
      *
      * @param Requests_Response $response
@@ -63,6 +73,48 @@ class Response extends Requests_Response
             $this->jsonResponse = true;
             $this->decodedBody = $decoded;
             $this->body = '';
+        }
+    }
+
+    /**
+     * Populate the StackPath API request ID from an error response
+     *
+     * Request IDs are stored in the error's `details` field, in the `requestId`
+     * of the detail who's `@type` value is "stackpath.rpc.RequestInfo".
+     */
+    public function findRequestId()
+    {
+        if ($this->success) {
+            return;
+        }
+
+        if (!$this->jsonResponse) {
+            return;
+        }
+
+        if (!property_exists($this->decodedBody, 'details')) {
+            return;
+        }
+
+        foreach ($this->decodedBody->details as $detail) {
+            if (!is_object($detail)) {
+                continue;
+            }
+
+            if (!property_exists($detail, '@type')) {
+                continue;
+            }
+
+            if ($detail->{'@type'} !== 'stackpath.rpc.RequestInfo') {
+                continue;
+            }
+
+            if (!property_exists($detail, 'requestId')) {
+                continue;
+            }
+
+            $this->requestId = $detail->requestId;
+            return;
         }
     }
 }
