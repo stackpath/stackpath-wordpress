@@ -26,7 +26,7 @@ class Client
     const DEFAULT_REQUEST_OPTIONS = [
         'timeout' => 60,
         'httpversion' => '1.1',
-        'user-agent' => 'StackPath WordPress Plugin/[VERSION] (+https://github.com/stackpath/stackpath-wordpress)',
+        'user-agent' => 'StackPath WordPress Plugin/%s (+https://github.com/stackpath/stackpath-wordpress)',
         'headers' => [
             'Content-Type' => 'application/json',
             'Accept' => 'application/json',
@@ -137,7 +137,7 @@ class Client
         // Prepare the request
         $requestOptions = array_merge_recursive(self::DEFAULT_REQUEST_OPTIONS, $options);
         $requestOptions['method'] = $method;
-        $requestOptions['user-agent'] = str_replace('[VERSION]', $this->pluginVersion, $requestOptions['user-agent']);
+        $requestOptions['user-agent'] = sprintf($requestOptions['user-agent'], $this->pluginVersion);
 
         // See if this call needs a bearer token
         $addAuthHeader = true;
