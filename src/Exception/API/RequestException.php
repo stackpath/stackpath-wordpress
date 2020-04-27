@@ -5,6 +5,7 @@ namespace StackPath\Exception\API;
 use Requests_Response;
 use StackPath\API\Response;
 use StackPath\Exception\Exception;
+use StackPath\WordPress\Message;
 
 /**
  * StackPath backend API request exception
@@ -55,7 +56,7 @@ class RequestException extends Exception
     /**
      * The response that resulted in an error
      *
-     * @var Requests_Response
+     * @var Response
      */
     public $response;
 
@@ -90,16 +91,57 @@ class RequestException extends Exception
     /**
      * Factory a new StackPath API exception.
      *
+     * @param string $pluginVersion
      * @param string $requestUrl
      * @param array $requestOptions
      * @param Response $response
      * @return RequestException
      */
     public static function create(
+        $pluginVersion,
         $requestUrl,
         array $requestOptions,
         Response $response
     ) {
+        // Sanitize passwords and authentication tokens out of the request
+        // options.
+        if (array_key_exists('body', $requestOptions)) {
+            $requestOptions['body'] = preg_replace(
+                '/"client_secret":"[A-Za-z0-9]*"/',
+                '"client_secret":"REDACTED"',
+                $requestOptions['body']
+            );
+        }
+
+        if (
+            array_key_exists('headers', $requestOptions)
+            && array_key_exists('Authorization', $requestOptions['headers'])
+        ) {
+            $requestOptions['headers']['Authorization'] = 'Bearer REDACTED';
+        }
+
+        // Log the error if debugging is set.
+        if (
+            defined('WP_DEBUG')
+            && defined('WP_DEBUG_LOG')
+            && WP_DEBUG
+            && WP_DEBUG_LOG
+        ) {
+            error_log("[StackPath WordPress Plugin {$pluginVersion}] An error was received from the StackPath API");
+            error_log("[StackPath WordPress Plugin {$pluginVersion}] Request URL: {$requestUrl}");
+
+            if ($response->requestId !== null) {
+                error_log("[StackPath WordPress Plugin {$pluginVersion}] Request ID: {$response->requestId}");
+            }
+
+            error_log(
+                "[StackPath WordPress Plugin {$pluginVersion}] Request options: "
+                . Message::debugFormat($requestOptions)
+            );
+
+            error_log("[StackPath WordPress Plugin {$pluginVersion}] Response: " . Message::debugFormat($response));
+        }
+
         // Pull the error messages out of the response body
         $code = null;
         $message = null;
@@ -162,6 +204,61 @@ class RequestException extends Exception
         if (count($this->details) > 0) {
             if ($description !== '') {
                 $description .= "\n";
+            }
+
+            // Serialize error details into strings for easy display
+            foreach ($this->details as $i => $detail) {
+                // Scalar details already display easily
+                if (!is_object($detail) && !is_array($detail)) {
+                    continue;
+                }
+
+                // Array details should be shown one per line
+                if (is_array($detail)) {
+                    $this->details[$i] = implode("\n", $detail);
+                    continue;
+                }
+
+                // If the detail isn't a StackPath typed detail then we don't
+                // know what to do with it.
+                if (!property_exists($detail, '@type')) {
+                    continue;
+                }
+
+                // Strip the RequestInfo detail
+                //
+                // RequestInfo shows up in error responses, which are already
+                // populated in the API response object and don't need to be
+                // shown to the user.
+                if ($detail->{'@type'} === 'stackpath.rpc.RequestInfo') {
+                    unset($this->details[$i]);
+                    continue;
+                }
+
+                // Populate input errors
+                //
+                // Many HTTP 400 errors have a stackpath.rpc.BadRequest details
+                // object that contains individual API field violations. Show
+                // one field violation per line.
+                if (
+                    $detail->{'@type'} === 'stackpath.rpc.BadRequest'
+                    && property_exists($detail, 'fieldViolations')
+                    && is_array($detail->fieldViolations)
+                ) {
+                    $newDetails = [];
+
+                    foreach ($detail->fieldViolations as $fieldViolation) {
+                        if (
+                            property_exists($fieldViolation, 'field')
+                            && property_exists($fieldViolation, 'description')
+                        ) {
+                            $newDetails[] = "{$fieldViolation->field}: {$fieldViolation->description}";
+                        }
+                    }
+
+                    $this->details[$i] = implode("\n", $newDetails);
+                    continue;
+                }
             }
 
             $description .= implode("\n", $this->details);

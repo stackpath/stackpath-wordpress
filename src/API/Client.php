@@ -26,7 +26,7 @@ class Client
     const DEFAULT_REQUEST_OPTIONS = [
         'timeout' => 60,
         'httpversion' => '1.1',
-        'user-agent' => 'StackPath WordPress plugin API client: ' . __CLASS__,
+        'user-agent' => 'StackPath WordPress Plugin/%s (+https://github.com/stackpath/stackpath-wordpress)',
         'headers' => [
             'Content-Type' => 'application/json',
             'Accept' => 'application/json',
@@ -62,6 +62,13 @@ class Client
     protected $wordPress;
 
     /**
+     * The WordPress plugin's version for use in User-Agent strings
+     *
+     * @var string
+     */
+    protected $pluginVersion;
+
+    /**
      * Build a StackPath API client
      *
      * @param Settings $settings
@@ -71,6 +78,16 @@ class Client
     {
         $this->settings = $settings;
         $this->wordPress = $wordPress;
+    }
+
+    /**
+     * Set the plugin's version for use in User-Agent strings
+     *
+     * @param string $version
+     */
+    public function setPluginVersion($version)
+    {
+        $this->pluginVersion = $version;
     }
 
     /**
@@ -85,6 +102,7 @@ class Client
     public function authenticate()
     {
         $client = new self($this->settings, $this->wordPress);
+        $client->setPluginVersion($this->pluginVersion);
 
         $result = $client->post('/identity/v1/oauth2/token', [
             'body' => json_encode([
@@ -119,6 +137,7 @@ class Client
         // Prepare the request
         $requestOptions = array_merge_recursive(self::DEFAULT_REQUEST_OPTIONS, $options);
         $requestOptions['method'] = $method;
+        $requestOptions['user-agent'] = sprintf($requestOptions['user-agent'], $this->pluginVersion);
 
         // See if this call needs a bearer token
         $addAuthHeader = true;
@@ -161,10 +180,11 @@ class Client
         // Recast the response as a StackPath API response
         $response = Response::fromWordPressResponse($response['http_response']->get_response_object());
         $response->decodeBody();
+        $response->findRequestId();
 
         // If the call was a failure then throw the appropriate exception
         if (!$response->success) {
-            throw RequestException::create($url, $requestOptions, $response);
+            throw RequestException::create($this->pluginVersion, $url, $requestOptions, $response);
         }
 
         // Finally, return the successful response

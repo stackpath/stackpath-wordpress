@@ -23,6 +23,8 @@ if (!defined('ABSPATH')) {
     die('!');
 }
 
+require_once ABSPATH . 'wp-admin/includes/plugin.php';
+
 const STACKPATH_PLUGIN_REQUIRED_PHP_VERSION = '5.6';
 
 // Perform system checks before loading the plugin.
@@ -30,9 +32,7 @@ const STACKPATH_PLUGIN_REQUIRED_PHP_VERSION = '5.6';
 // Make sure the system's PHP version is recent enough. Deactivate the plugin
 // and exit if it isn't.
 if (version_compare(PHP_VERSION, STACKPATH_PLUGIN_REQUIRED_PHP_VERSION, '<')) {
-    require_once ABSPATH . 'wp-admin/includes/plugin.php';
     deactivate_plugins(plugin_basename(__FILE__), true);
-
     wp_die(
         'The StackPath plugin requires at least PHP version '
             . STACKPATH_PLUGIN_REQUIRED_PHP_VERSION . ', but version '

@@ -78,6 +78,8 @@ class Plugin
         $this->settings = $settings;
         $this->apiClient = $apiClient;
         $this->wordPress = $wordPress;
+
+        $this->apiClient->setPluginVersion($this->version());
     }
 
     /**
@@ -286,8 +288,7 @@ class Plugin
      */
     public function log(Message $message)
     {
-        $now = new DateTime();
-        $logEntry = "[{$now->format(DateTime::ATOM)}][StackPath WordPress Plugin {$this->version()}] {$message->title}";
+        $logEntry = "[StackPath WordPress Plugin {$this->version()}] {$message->title}";
 
         if ($message->hasDescription()) {
             $logEntry .= " - {$message->description}";
