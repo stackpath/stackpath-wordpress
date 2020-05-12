@@ -4,7 +4,7 @@
  * Plugin Name: StackPath
  * Description: Place your WordPress site behind the StackPath edge network for easy CDN, firewall, and monitoring control
  * Plugin URI: https://github.com/stackpath/stackpath-wordpress
- * Version: 0.1.0
+ * Version: 0.2.1
  * Author: StackPath, LLC
  * Author URI: https://www.stackpath.com/
  * License: GPL2

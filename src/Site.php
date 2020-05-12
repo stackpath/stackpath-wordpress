@@ -57,24 +57,6 @@ class Site
     public $features = [];
 
     /**
-     * URLs used as API login URLs for sites with the WAF feature
-     *
-     * The StackPath WAF processes these URLs differently than standard browser
-     * requests.
-     *
-     * @var string[]
-     */
-    public $apiLoginUrls = [];
-
-    /**
-     * The StackPath POPs that route all incoming requests
-     *
-     * Shield POP Codes
-     * @var string[]
-     */
-    public $shieldPopCodes = [];
-
-    /**
      * The date a site was created
      *
      * @var DateTime
@@ -109,11 +91,6 @@ class Site
     public $monitoring;
 
     /**
-     * @var stdClass[]
-     */
-    public $scopes = [];
-
-    /**
      * Build a site object
      *
      * @param string $id
@@ -122,8 +99,6 @@ class Site
      * @param string|null $status
      * @param string[] $features
      * @param string[] $apiUrls
-     * @param string[] $apiLoginUrls
-     * @param string[] $shieldPopCodes
      * @param bool $monitoring
      * @param DateTime|null $createdAt
      * @param DateTime|null $updatedAt
@@ -135,8 +110,6 @@ class Site
         $status = null,
         array $features = [],
         array $apiUrls = [],
-        array $apiLoginUrls = [],
-        array $shieldPopCodes = [],
         $monitoring = false,
         DateTime $createdAt = null,
         DateTime $updatedAt = null
@@ -146,8 +119,6 @@ class Site
         $this->label = $label;
         $this->status = $status;
         $this->features = $features;
-        $this->apiLoginUrls = $apiLoginUrls;
-        $this->shieldPopCodes = $shieldPopCodes;
         $this->createdAt = $createdAt;
         $this->updatedAt = $updatedAt;
         $this->apiUrls = $apiUrls;
@@ -170,8 +141,6 @@ class Site
             $site->status,
             $site->features,
             $site->apiUrls,
-            $site->apiLoginUrls,
-            $site->shieldPopCodes,
             $site->monitoring,
             DateTime::createFromFormat(Plugin::DATETIME_FORMAT, $site->createdAt, new DateTimeZone('UTC')),
             DateTime::createFromFormat(Plugin::DATETIME_FORMAT, $site->updatedAt, new DateTimeZone('UTC'))
