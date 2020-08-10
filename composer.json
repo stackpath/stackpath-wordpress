@@ -1,4 +1,7 @@
 {
+  "name": "stackpath/stackpath-wordpress",
+  "description": "Place your WordPress site behind the StackPath edge network",
+  "license": "MIT",
   "require": {
     "php": ">= 5.6",
     "ext-json": "*"
