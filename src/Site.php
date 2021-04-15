@@ -391,7 +391,7 @@ class Site
                         'bypassCache' => [
                             [
                                 'enabled' => true,
-                                'cookieFilter' => 'wp-*,wordpress,comment_*,woocommerce_*',
+                                'cookieFilter' => 'wp-*,wordpress_*,comment_*,woocommerce_*',
                             ],
                         ],
                     ],
@@ -420,7 +420,7 @@ class Site
                         'bypassCache' => [
                             [
                                 'enabled' => false,
-                                'cookieFilter' => 'wp-*,wordpress,comment_*,woocommerce_*',
+                                'cookieFilter' => 'wp-*,wordpress_*,comment_*,woocommerce_*',
                             ],
                         ],
                     ],
