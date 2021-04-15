@@ -82,7 +82,7 @@ if ($transientData->getFormData('bypass_cache') !== null) {
 <div class="stackpath-dashboard-panel">
     <div>Proxy all requests to your origin server when the following cookies exist in the request:</div>
 
-    <p><code>wp-*, wordpress, comment_*, woocommerce_*</code></p>
+    <p><code>wp-*, wordpress_*, comment_*, woocommerce_*</code></p>
 
     <div>This ensures all dynamic content comes from the origin instead of the cache.</div>
 
