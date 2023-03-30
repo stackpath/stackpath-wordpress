@@ -39,18 +39,25 @@ class Response extends Requests_Response
     /**
      * Convert a WordPress response into a StackPath API response
      *
-     * @param Requests_Response $response
+     * @param Requests_Response|WpOrg\Requests\Response $response
      * @return Response
      */
-    public static function fromWordPressResponse(Requests_Response $response)
+    public static function fromWordPressResponse($response)
     {
         // Here be dragons.
         //
-        // Recast the response from a Request_Response to StackPath\API\Response
+        // Recast the response from a WordPress Response to StackPath\API\Response
         // via serialization.
+
+        // The Response class may be either Requests_Response (older WP) or WpOrg\Requests\Response
+        // (newer WP). Generate a preg_replace-compatible search string so that we can work with
+        // whichever class is being used.
+        $responseClass = get_class($response);
+        $search = '/^O:' . strlen($responseClass) . ':"' . preg_quote($responseClass) . '"/';
+
         return unserialize(
             preg_replace(
-                '/^O:17:"Requests_Response"/',
+                $search,
                 'O:' . strlen(__CLASS__) . ':"' . __CLASS__ . '"',
                 serialize($response)
             )
