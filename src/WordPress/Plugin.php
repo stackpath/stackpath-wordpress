@@ -186,9 +186,12 @@ class Plugin
 
             // Here be dragons.
             //
-            // Remove the duplicate "StackPath" item from the sub-menu.
+            // Remove the duplicate "StackPath" item from the sub-menu, only if it exists. It may
+            // not due to, e.g. a permissions-management plugin.
             global $submenu;
-            array_shift($submenu['stackpath']);
+            if (isset($submenu) && isset($submenu['stackpath']) && is_array($submenu['stackpath'])) {
+                array_shift($submenu['stackpath']);
+            }
         });
 
         // Register actions
